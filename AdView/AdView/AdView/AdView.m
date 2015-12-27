@@ -143,8 +143,13 @@
     NSMutableArray * imagePaths = [[NSMutableArray alloc]init];
     for (NSString * imageName in imageLinkURL)
     {
-        NSURL * imageURL = [NSURL URLWithString:imageName];
-        [imagePaths addObject:imageURL];
+        //支持字符串数组和NSURL数组
+        if ([imageName isKindOfClass:[NSString class]]) {
+            NSURL * imageURL = [NSURL URLWithString:imageName];
+            [imagePaths addObject:imageURL];
+        }else if ([imageName isKindOfClass:[NSURL class]]){
+            [imagePaths addObject:imageName];
+        }
     }
     AdView * adView = [AdView adScrollViewWithFrame:frame imageLinkURL:imageLinkURL   pageControlShowStyle:PageControlShowStyle];
     adView.placeHoldImage = [UIImage imageNamed:imageName];
@@ -216,7 +221,10 @@
     [self setPageControlShowStyle:self.PageControlShowStyle];
 }
 
-
+#pragma mark - 重新设置图片链接数组，刷新显示图片（适用于上下拉刷新后，重新设置图片数组，更新图片）
+- (void)reloadImageURLArray:(NSArray*)URLarr{
+    [self setImageLinkURL:URLarr];
+}
 
 #pragma mark - 设置每个对应广告对应的广告语
 - (void)setAdTitleArray:(NSArray *)adTitleArray withShowStyle:(AdTitleShowStyle)adTitleStyle
