@@ -148,4 +148,10 @@ typedef NS_ENUM(NSUInteger, AdTitleShowStyle)
  *  @param imageName            属性名称
  */
 + (id)adScrollViewWithFrame:(CGRect)frame modelArr:(NSArray *)modelArr imagePropertyName:(NSString *)imageName pageControlShowStyle:(UIPageControlShowStyle)PageControlShowStyle;
+/**
+ *  重新设置图片链接数组，刷新显示图片
+ *
+ *  @param URLarr             新的URL数组
+ */
+- (void)reloadImageURLArray:(NSArray*)URLarr;
 @end
