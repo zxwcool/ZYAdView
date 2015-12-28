@@ -310,7 +310,33 @@
     _pageControl.enabled = NO;
     [self addSubview:_pageControl];
 }
-
+#pragma mark - 设置图片展示缩放方式
+- (void)setPictureShowStyle:(AdPictureShowStyle)pictureShowStyle{
+    switch (pictureShowStyle) {
+        case AdPictureShowModeScaleToFill:
+            _leftImageView.contentMode = UIViewContentModeScaleToFill;
+            _centerImageView.contentMode = UIViewContentModeScaleToFill;
+            _rightImageView.contentMode = UIViewContentModeScaleToFill;
+            break;
+        case AdPictureShowModeScaleAspectFit:
+            _leftImageView.contentMode = UIViewContentModeScaleAspectFit;
+            _centerImageView.contentMode = UIViewContentModeScaleAspectFit;
+            _rightImageView.contentMode = UIViewContentModeScaleAspectFit;
+            break;
+        case AdPictureShowModeScaleAspectFill:
+            _leftImageView.contentMode = UIViewContentModeScaleAspectFill;
+            _centerImageView.contentMode = UIViewContentModeScaleAspectFill;
+            _rightImageView.contentMode = UIViewContentModeScaleAspectFill;
+            break;
+        case AdPictureShowModeCenter:
+            _leftImageView.contentMode = UIViewContentModeCenter;
+            _centerImageView.contentMode = UIViewContentModeCenter;
+            _rightImageView.contentMode = UIViewContentModeCenter;
+            break;
+        default:
+            break;
+    }
+}
 #pragma mark - 计时器到时,系统滚动图片
 - (void)animalMoveImage:(NSTimer *)time
 {
