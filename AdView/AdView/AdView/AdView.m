@@ -317,6 +317,7 @@
     orgiFrame.origin.x -= pageControlEdgeInsets.right;
     orgiFrame.origin.y += pageControlEdgeInsets.top;
     orgiFrame.origin.y -= pageControlEdgeInsets.bottom;
+    _pageControl.frame = orgiFrame;
 }
 #pragma mark - 设置图片展示缩放方式
 - (void)setPictureShowStyle:(AdPictureShowStyle)pictureShowStyle{
