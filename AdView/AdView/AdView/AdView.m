@@ -310,6 +310,14 @@
     _pageControl.enabled = NO;
     [self addSubview:_pageControl];
 }
+#pragma mark - 设置pageControl偏移量
+- (void)setPageControlEdgeInsets:(UIEdgeInsets)pageControlEdgeInsets{
+    CGRect orgiFrame = _pageControl.frame;
+    orgiFrame.origin.x += pageControlEdgeInsets.left;
+    orgiFrame.origin.x -= pageControlEdgeInsets.right;
+    orgiFrame.origin.y += pageControlEdgeInsets.top;
+    orgiFrame.origin.y -= pageControlEdgeInsets.bottom;
+}
 #pragma mark - 设置图片展示缩放方式
 - (void)setPictureShowStyle:(AdPictureShowStyle)pictureShowStyle{
     switch (pictureShowStyle) {
