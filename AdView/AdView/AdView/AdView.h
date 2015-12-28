@@ -68,6 +68,12 @@ typedef NS_ENUM(NSUInteger, AdPictureShowStyle)
 /**
  *  @author ZY, 15-05-17
  *
+ *  pageControl显示偏移量
+ */
+@property (assign,nonatomic) UIEdgeInsets  pageControlEdgeInsets;
+/**
+ *  @author ZY, 15-05-17
+ *
  *  设置标题对应的位置
  */
 @property (assign,nonatomic,readonly) AdTitleShowStyle  adTitleStyle;
