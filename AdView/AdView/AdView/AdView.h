@@ -33,6 +33,19 @@ typedef NS_ENUM(NSUInteger, AdTitleShowStyle)
     AdTitleShowStyleRight,
 };
 
+typedef NS_ENUM(NSUInteger, AdPictureShowStyle)
+{
+    /**
+     *  @author ZY, 15-04-26
+     *
+     *  图片显示方式
+     */
+    AdPictureShowModeScaleToFill,
+    AdPictureShowModeScaleAspectFit,      // contents scaled to fit with fixed aspect. remainder is transparent
+    AdPictureShowModeScaleAspectFill,     // contents scaled to fill with fixed aspect. some portion of content may be clipped.
+    AdPictureShowModeCenter,
+};
+
 @interface AdView : UIView<UIScrollViewDelegate>
 {
     UILabel * _centerAdLabel;
@@ -58,7 +71,12 @@ typedef NS_ENUM(NSUInteger, AdTitleShowStyle)
  *  设置标题对应的位置
  */
 @property (assign,nonatomic,readonly) AdTitleShowStyle  adTitleStyle;
-
+/**
+ *  @author ZY, 15-05-17
+ *
+ *  图片显示方式
+ */
+@property (assign,nonatomic) AdPictureShowStyle  pictureShowStyle;
 /**
  *  @author ZY, 15-05-17
  *
