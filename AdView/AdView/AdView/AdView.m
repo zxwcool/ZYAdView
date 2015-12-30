@@ -356,10 +356,9 @@
 #pragma mark 停止/开始自动滚屏
 - (void)stopAutoScroll:(BOOL)stopOrNo{
     if (!stopOrNo){
-        [self setUpTime];
+        [moveTimer setFireDate:[NSDate distantPast]];
     }else{
-        [moveTimer invalidate];
-        moveTimer = nil;
+        [moveTimer setFireDate:[NSDate distantFuture]];
     }
 }
 #pragma mark - 图片停止时,调用该函数使得滚动视图复用
