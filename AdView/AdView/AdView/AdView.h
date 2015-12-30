@@ -178,4 +178,10 @@ typedef NS_ENUM(NSUInteger, AdPictureShowStyle)
  *  @param URLarr             新的URL数组
  */
 - (void)reloadImageURLArray:(NSArray*)URLarr;
+/**
+ *  停止/开始自动滚屏
+ *
+ *  @param URLarr             新的URL数组
+ */
+- (void)stopAutoScroll:(BOOL)stop;
 @end
