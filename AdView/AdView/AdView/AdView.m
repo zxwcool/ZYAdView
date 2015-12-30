@@ -354,9 +354,8 @@
     [NSTimer scheduledTimerWithTimeInterval:0.4f target:self selector:@selector(scrollViewDidEndDecelerating:) userInfo:nil repeats:NO];
 }
 #pragma mark 停止/开始自动滚屏
-- (void)stopAutoScroll:(BOOL)stop
-{
-    if (!stop){
+- (void)stopAutoScroll:(BOOL)stopOrNo{
+    if (!stopOrNo){
         [self setUpTime];
     }else{
         [moveTimer invalidate];

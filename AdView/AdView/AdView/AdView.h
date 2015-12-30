@@ -183,5 +183,5 @@ typedef NS_ENUM(NSUInteger, AdPictureShowStyle)
  *
  *  @param URLarr             新的URL数组
  */
-- (void)stopAutoScroll:(BOOL)stop;
+- (void)stopAutoScroll:(BOOL)stopOrNo;
 @end
