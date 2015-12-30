@@ -353,7 +353,16 @@
     _isTimeUp = YES;
     [NSTimer scheduledTimerWithTimeInterval:0.4f target:self selector:@selector(scrollViewDidEndDecelerating:) userInfo:nil repeats:NO];
 }
-
+#pragma mark 停止/开始自动滚屏
+- (void)stopAutoScroll:(BOOL)stop
+{
+    if (!stop){
+        [self setUpTime];
+    }else{
+        [moveTimer invalidate];
+        moveTimer = nil;
+    }
+}
 #pragma mark - 图片停止时,调用该函数使得滚动视图复用
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
