@@ -101,13 +101,17 @@
         [self setUpTime];
     }
 }
-
+//避免在父视图重载时，重复调用willMoveToSuperview，重定义定时器事件，造成定时器不断累加，滚动加快
 - (void)setUpTime
 {
-    if (_isNeedCycleRoll&&_imageLinkURL.count>=2)
+    if (_isNeedCycleRoll && _imageLinkURL.count>=2 && !moveTimer)
     {
         moveTimer = [NSTimer scheduledTimerWithTimeInterval:_adMoveTime target:self selector:@selector(animalMoveImage:) userInfo:nil repeats:YES];
         _isTimeUp = NO;
+    }
+    else if(_isNeedCycleRoll && _imageLinkURL.count>=2 && moveTimer)
+    {
+        [self stopAutoScroll:NO];
     }
 }
 
